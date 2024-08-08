@@ -2,7 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "use": "@vercel/go"
+      "use": "@vercel/go",
+      "src": "api/webhook.go",
+      "config": {
+        "zeroConfig": true
+      }
     }
   ],
   "routes": [
