@@ -7,19 +7,8 @@ import (
 	"net/url"
 )
 
-func main() {
-	http.HandleFunc("/webhook", handleAPI)
-
-	port := ":8443"
-	fmt.Printf("Starting server on port %s\n", port)
-	err := http.ListenAndServe(port, nil)
-	if err != nil {
-		fmt.Printf("Error starting server: %s\n", err)
-	}
-}
-
-func handleAPI(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("proxy handleAPI")
+func HandleWebhook(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("proxy HandleWebhook")
 
 	targetURL := "http://ec2-52-77-241-219.ap-southeast-1.compute.amazonaws.com:8443/webhook"
 	// targetURL := "http://localhost:8888"
@@ -38,4 +27,15 @@ func handleAPI(w http.ResponseWriter, r *http.Request) {
 	// 执行反向代理
 	proxy.ServeHTTP(w, r)
 
+}
+
+func main() {
+	http.HandleFunc("/webhook", HandleWebhook)
+
+	port := ":8443"
+	fmt.Printf("Starting server on port %s\n", port)
+	err := http.ListenAndServe(port, nil)
+	if err != nil {
+		fmt.Printf("Error starting server: %s\n", err)
+	}
 }
