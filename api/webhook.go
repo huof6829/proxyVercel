@@ -10,7 +10,7 @@ import (
 func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("proxy HandleWebhook")
 
-	targetURL := "http://ec2-52-77-241-219.ap-southeast-1.compute.amazonaws.com:8443/webhook"
+	targetURL := "http://ec2-52-77-241-219.ap-southeast-1.compute.amazonaws.com:8443"
 	// targetURL := "http://localhost:8888"
 
 	url, err := url.Parse(targetURL)
