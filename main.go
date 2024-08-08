@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	handler "proxyvercel/api"
+
+	handler "github.com/huof6829/proxyvercel/api"
 )
 
 func main() {
