@@ -7,11 +7,13 @@ import (
 	"net/url"
 )
 
+// 目录/文件名
+// curl -X POST -H "Content-Type: application/json" -d '{"username": "user", "password": "pass"}'  https://proxy-vercel-blue.vercel.app/api/webhook
+
 func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("proxy HandleWebhook")
 
 	targetURL := "http://ec2-52-77-241-219.ap-southeast-1.compute.amazonaws.com:8443"
-	// targetURL := "http://localhost:8888"
 
 	url, err := url.Parse(targetURL)
 	if err != nil {
@@ -20,9 +22,10 @@ func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 	}
 
 	proxy := httputil.NewSingleHostReverseProxy(url)
-
-	// 修改请求主机头，确保目标服务器能正确处理
 	r.Host = url.Host
+
+	fmt.Printf("url.Host: %+v\n", url.Host)
+	fmt.Printf("r.URL.Path: %+v\n", r.URL.Path)
 
 	// 执行反向代理
 	proxy.ServeHTTP(w, r)

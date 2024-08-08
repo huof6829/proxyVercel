@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/webhook", handler.HandleWebhook)
+	http.HandleFunc("/api/webhook", handler.HandleWebhook)
 
-	port := ":8443"
+	port := ":8441"
 	fmt.Printf("Starting server on port %s\n", port)
 	err := http.ListenAndServe(port, nil)
 	if err != nil {
