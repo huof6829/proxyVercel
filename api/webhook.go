@@ -9,6 +9,7 @@ import (
 
 // 目录/文件名
 // curl -X POST -H "Content-Type: application/json" -d '{"username": "user", "password": "pass"}'  https://proxy-vercel-blue.vercel.app/api/webhook
+// vercel.json building 指定程序入口
 
 func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("proxy HandleWebhook")
@@ -20,6 +21,8 @@ func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("Error parsing target URL: %s", err), http.StatusInternalServerError)
 		return
 	}
+
+	fmt.Printf("r.Host: %+v\n", r.Host)
 
 	proxy := httputil.NewSingleHostReverseProxy(url)
 	r.Host = url.Host
