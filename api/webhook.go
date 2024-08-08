@@ -7,7 +7,7 @@ import (
 	"net/url"
 )
 
-// 目录/文件名
+// 默认443  目录/文件名
 // curl -X POST -H "Content-Type: application/json" -d '{"username": "user", "password": "pass"}'  https://proxy-vercel-blue.vercel.app/api/webhook
 // vercel.json building 指定程序入口
 
