@@ -11,8 +11,12 @@
   ],
   "routes": [
     {
-      "src": "/.*",
+      "src": "/api/webhook",
       "dest": "/api/webhook.go"
+    },
+    {
+      "src": "/api/redis",
+      "dest": "/api/redis.go"
     }
   ]
 }

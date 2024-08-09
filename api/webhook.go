@@ -9,7 +9,9 @@ import (
 
 // 默认443  目录/文件名
 // curl -X POST -H "Content-Type: application/json" -d '{"username": "user", "password": "pass"}'  https://proxy-vercel-blue.vercel.app/api/webhook
-// vercel.json building 指定程序入口
+// vercel.json building 指定程序入口   "src": "/.*" 无效
+
+// https://proxy-vercel-blue.vercel.app/api/redis
 
 func HandleWebhook(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("proxy HandleWebhook")
