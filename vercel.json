@@ -3,10 +3,6 @@
   "builds": [
     {
       "use": "@vercel/go",
-      "src": "api/webhook.go",
-      "config": {
-        "zeroConfig": true
-      }
     }
   ],
   "routes": [
@@ -17,6 +13,10 @@
     {
       "src": "/api/redis",
       "dest": "/api/redis.go"
+    },
+    {
+      "src": "/api/webhook_twitter",
+      "dest": "/api/webhook_twitter.go"
     }
   ]
 }
