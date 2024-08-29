@@ -12,6 +12,18 @@
     {
       "src": "/api/webhook_twitter",
       "dest": "/api/webhook_twitter.go"
+    },
+    {
+      "src": "/api/get_data",
+      "dest": "/api/get_data.go"
+    },
+    {
+      "src": "/api/user_store",
+      "dest": "/api/user_store.go"
+    },
+    {
+      "src": "/api/invite_list",
+      "dest": "/api/invite_list.go"
     }
   ]
 }
